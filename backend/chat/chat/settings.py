@@ -16,6 +16,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'nurbek.lol']
 
+CORS_ALLOW_ALL_ORIGINS = True
+
+
 
 AUTH_USER_MODEL = 'main.User'  
 
