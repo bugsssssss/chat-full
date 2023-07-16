@@ -43,7 +43,7 @@ class GetUser(views.APIView):
 
         if user_id == 'all':
             query = User.objects.all()
-            return Response([{'id': x.id, 'username': x.username} for x in query])
+            return Response([{'id': x.id, 'first_name': x.first_name} for x in query])
         try:
             instance = User.objects.get(id=user_id)
             return Response(UserSerializer(instance).data)
