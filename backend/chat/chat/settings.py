@@ -16,8 +16,16 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'nurbek.lol']
 
+CORS_ALLOWED_ORIGINS = [
+    'http://127.0.0.1:5500',  # Add your frontend origin here
+    'http://localhost:5500',
+    # Add other allowed origins if needed
+]
+
 CORS_ALLOW_ALL_ORIGINS = True
 
+
+CORS_ALLOW_CREDENTIALS = True
 
 
 AUTH_USER_MODEL = 'main.User'  
