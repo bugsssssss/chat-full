@@ -5,6 +5,7 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 
 class User(AbstractUser): 
     first_name = models.CharField(("First name"), max_length=100)
+    username = models.CharField(("username"), max_length=50, blank=True, unique=True)
     email = models.EmailField(("email"), max_length=254, blank=True)
     age = models.IntegerField(("age"), blank=True, null=True)
     about = models.TextField(("about"), blank=True)
