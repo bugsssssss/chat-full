@@ -33,3 +33,16 @@ def register(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+class GetUser(views.APIView):
+
+    def get(self, request):
+        user_id = request.GET.get('id')
+
+        try:
+            instance = User.objects.get(id=user_id)
+            return Response(UserSerializer(instance).data)
+        except:
+            return Response('User not found!')
