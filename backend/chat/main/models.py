@@ -12,3 +12,5 @@ class User(AbstractUser):
     password = models.CharField(("password"), max_length=100)
     created = models.DateTimeField(("created"), auto_now=False, auto_now_add=True)
 
+    def __str__(self):
+        return self.first_name
