@@ -49,3 +49,16 @@ class GetUser(views.APIView):
             return Response(UserSerializer(instance).data)
         except:
             return Response('User not found!')
+        
+
+
+
+class GetChat(views.APIView):
+
+    def get(self, request):
+        chat_id = request.GET.get('id')
+
+        if chat_id:
+                instance = Chat.objects.get(id=chat_id)
+                return Response(ChatSerializer(instance).data)
+  

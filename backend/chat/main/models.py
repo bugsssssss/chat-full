@@ -14,3 +14,33 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.first_name
+
+
+class Message(models.Model):
+
+    sender = models.ForeignKey("main.User", verbose_name=("sender"), on_delete=models.CASCADE)
+    text = models.TextField(("text"))
+    created = models.DateTimeField(("created"), auto_now=False, auto_now_add=True)
+
+
+
+    class Meta:
+        verbose_name = ("Message")
+        verbose_name_plural = ("Messages")
+
+    # def __str__(self):
+    #     return self.id
+
+
+
+class Chat(models.Model):
+    messages = models.ManyToManyField("main.Message", verbose_name=("messages"))
+    created = models.DateTimeField(("created"), auto_now=False, auto_now_add=True)
+
+    class Meta:
+        verbose_name = ("Chat")
+        verbose_name_plural = ("Chats")
+
+    # def __str__(self):
+    #     return self.id
+
