@@ -59,6 +59,13 @@ class GetChat(views.APIView):
         chat_id = request.GET.get('id')
 
         if chat_id:
+            try:
                 instance = Chat.objects.get(id=chat_id)
                 return Response(ChatSerializer(instance).data)
+            except:
+                return Response({
+                    'status': False,
+                    'info': 'Чат с таким айди не найден'
+                })
+        
   
